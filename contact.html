@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Paulina Sandquist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="images/PS.png" alt="Paulina Sandquist logo">
+  </a>
+
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="subpage-hero contact-page">
+    <div class="subpage-copy fade-item">
+      <p class="eyebrow">Contact</p>
+
+      <h1>Let’s create something with presence.</h1>
+
+      <p class="intro-text">
+        Have a project, idea or brand you’d like to bring to life?
+        Send me a message and I’ll get back to you.
+      </p>
+
+      <div class="contact-details">
+        <div>
+          <span>Available for</span>
+          <p>Content, copywriting, websites and social media projects</p>
+        </div>
+
+        <div>
+          <span>LinkedIn</span>
+          <a href="https://linkedin.com/in/paulinasandquist" target="_blank">linkedin.com/in/paulinasandquist</a>
+        </div>
+
+        <div>
+          <span>Location</span>
+          <p>Barcelona, Spain / Gothenburg, Sweden</p>
+        </div>
+      </div>
+    </div>
+
+    <form 
+  id="contact-form"
+  class="contact-form contact-page-form fade-item"
+  action="https://formspree.io/f/mzdwobqb"
+  method="POST"
+>
+  <div class="form-row">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+  </div>
+
+  <input type="text" name="project_type" placeholder="Project type">
+
+  <textarea name="message" placeholder="Tell me a little about your project" required></textarea>
+
+  <button type="submit" class="button">Send message</button>
+
+  <p id="form-message" class="form-message" aria-live="polite"></p>
+</form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <img src="images/PS.png" alt="Paulina Sandquist logo">
+    <p>Content strategy, copywriting, websites & digital presence.</p>
+  </div>
+
+  <nav class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <p class="copyright">© 2026 Paulina Sandquist. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
