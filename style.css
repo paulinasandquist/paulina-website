@@ -1293,10 +1293,17 @@ p {
 }
 
 .selected-work .project-grid,
-.reel-grid,
-.copy-grid {
+.reel-grid {
   display: flex;
   overflow-x: auto;
+  gap: 18px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+}
+
+.copy-grid {
+  display: flex;
+  overflow-x: hidden;
   gap: 18px;
   scroll-snap-type: x mandatory;
   padding-bottom: 16px;
@@ -1307,6 +1314,23 @@ p {
 .copy-grid .copy-card {
   flex: 0 0 84%;
   scroll-snap-align: center;
+}
+
+.copy-grid .copy-card {
+  max-width: 84%;
+}
+
+.copy-grid .copy-card {
+  padding: 26px;
+}
+
+.copy-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.copy-card h4 {
+  font-size: 24px;
 }
 
 /* MOBILE CHEVRON ARROWS */
