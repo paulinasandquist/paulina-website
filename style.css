@@ -605,15 +605,26 @@ p {
 .about-preview .text-link {
   margin-top: 4px;
 }
-.about-page .subpage-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+
+/* ABOUT PAGE */
+
+.about-page-hero .subpage-copy {
+  max-width: 700px;
 }
 
-.about-page .subpage-copy p {
-  margin: 0;
+.about-page-hero .subpage-copy h1 {
+  margin-bottom: 34px;
 }
+
+.about-page-hero .intro-text {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.about-page-hero .subpage-copy p:not(.eyebrow):not(.intro-text) {
+  margin-bottom: 0;
+}
+
 /* TESTIMONIALS */
 
 .testimonial-card {
@@ -661,23 +672,6 @@ p {
 
 .subpage-copy {
   max-width: 980px;
-}
-
-.about-page-hero .subpage-copy {
-  max-width: 700px;
-}
-
-.about-page-hero .subpage-copy h1 {
-  margin-bottom: 34px;
-}
-
-.about-page-hero .intro-text {
-  margin-top: 0;
-  margin-bottom: 24px;
-}
-
-.about-page-hero .subpage-copy p:not(.eyebrow):not(.intro-text) {
-  margin-bottom: 0;
 }
 
 .services-detail-grid,
@@ -759,9 +753,14 @@ p {
 
 .contact-details a,
 .contact-details p {
-  color: var(--blue);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--muted);
   text-decoration: none;
 }
+
 .contact-details a:hover {
   color: var(--blue);
   opacity: 0.8;
@@ -833,6 +832,7 @@ p {
   transform: translateY(-2px);
   opacity: 1;
 }
+
 .form-message {
   min-height: 24px;
   text-align: center;
@@ -1096,7 +1096,13 @@ p {
   color: var(--muted);
 }
 
-/* RESPONSIVE */
+/* CAROUSEL BASE */
+
+.carousel-arrow {
+  display: none;
+}
+
+/* RESPONSIVE: TABLET */
 
 @media (max-width: 1100px) {
   .hero,
@@ -1132,6 +1138,8 @@ p {
   }
 }
 
+/* RESPONSIVE: MOBILE */
+
 @media (max-width: 760px) {
   :root {
     --section-pad: 76px 6vw;
@@ -1153,7 +1161,7 @@ p {
   .hero,
   .simple-page-hero,
   .subpage-hero,
-  .subpage-hero.about-page,
+  .subpage-hero.about-page-hero,
   .subpage-hero.contact-page {
     min-height: auto;
     padding: 70px 6vw;
@@ -1227,4 +1235,130 @@ p {
   .copyright {
     justify-self: start;
   }
+
+  /* MOBILE HOMEPAGE */
+
+  .selected-work .project-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+  }
+
+  .selected-work .project-card {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .results-grid .proof-card {
+    padding: 22px 16px;
+    min-height: auto;
+  }
+
+  .results-grid strong {
+    font-size: 38px;
+  }
+
+  .results-grid .proof-card span {
+    font-size: 11px;
+  }
+
+  .services-preview .services-grid {
+    display: none;
+  }
+
+  .services-preview .section-heading {
+    margin-bottom: 24px;
+  }
+
+ /* MOBILE CAROUSELS */
+
+.mobile-carousel-wrap {
+  position: relative;
+}
+
+.mobile-carousel {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.mobile-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.selected-work .project-grid,
+.reel-grid,
+.copy-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 18px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+}
+
+.selected-work .project-card,
+.reel-grid .video-card,
+.copy-grid .copy-card {
+  flex: 0 0 84%;
+  scroll-snap-align: center;
+}
+
+/* MOBILE CHEVRON ARROWS */
+
+.carousel-arrow {
+  display: block;
+  position: absolute;
+  top: 50%;
+  z-index: 80;
+  width: 48px;
+  height: 70px;
+  border: none;
+  background: transparent;
+  font-size: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-top: 3px solid var(--blue);
+  border-right: 3px solid var(--blue);
+  opacity: 0.95;
+  transition: 0.25s ease;
+}
+
+.carousel-arrow-right {
+  right: -4px;
+}
+
+.carousel-arrow-right::before {
+  transform: rotate(45deg);
+}
+
+.carousel-arrow-left {
+  left: -4px;
+}
+
+.carousel-arrow-left::before {
+  transform: rotate(-135deg);
+}
+
+.carousel-arrow-right:hover::before {
+  opacity: 1;
+  transform: scale(1.08) rotate(45deg);
+}
+
+.carousel-arrow-left:hover::before {
+  opacity: 1;
+  transform: scale(1.08) rotate(-135deg);
+}
 }
