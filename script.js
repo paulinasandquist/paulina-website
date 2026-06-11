@@ -18,6 +18,7 @@ animatedItems.forEach(item => {
   item.classList.add("hidden");
   observer.observe(item);
 });
+
 const contactForm = document.querySelector("#contact-form");
 const formMessage = document.querySelector("#form-message");
 
@@ -61,3 +62,28 @@ if (contactForm) {
     submitButton.disabled = false;
   });
 }
+
+document.querySelectorAll(".mobile-carousel-wrap").forEach((wrap) => {
+  const carousel = wrap.querySelector(".mobile-carousel, .project-grid, .reel-grid, .copy-grid");
+  const leftArrow = wrap.querySelector(".carousel-arrow-left");
+  const rightArrow = wrap.querySelector(".carousel-arrow-right");
+
+  if (!carousel || !leftArrow || !rightArrow) return;
+
+  function scrollCarousel(direction) {
+    const card = carousel.querySelector(".project-card, .video-card, .copy-card");
+    const gap = parseFloat(getComputedStyle(carousel).gap) || 18;
+
+    const scrollAmount = card
+      ? card.getBoundingClientRect().width + gap
+      : carousel.clientWidth * 0.85;
+
+    carousel.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth"
+    });
+  }
+
+  rightArrow.addEventListener("click", () => scrollCarousel(1));
+  leftArrow.addEventListener("click", () => scrollCarousel(-1));
+});
