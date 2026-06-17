@@ -1,3 +1,4 @@
+css
 * {
   margin: 0;
   padding: 0;
@@ -1277,112 +1278,190 @@ p {
     margin-bottom: 24px;
   }
 
- /* MOBILE CAROUSELS */
+  /* MOBILE CAROUSELS */
 
-.mobile-carousel-wrap {
-  position: relative;
+  .mobile-carousel-wrap {
+    position: relative;
+  }
+
+  .mobile-carousel {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .mobile-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .selected-work .project-grid,
+  .reel-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+  }
+
+  .copy-grid {
+    display: flex;
+    overflow-x: hidden;
+    gap: 18px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+  }
+
+  .selected-work .project-card,
+  .reel-grid .video-card,
+  .copy-grid .copy-card {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+  }
+
+  .copy-grid .copy-card {
+    max-width: 84%;
+    padding: 26px;
+  }
+
+  .copy-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .copy-card h4 {
+    font-size: 24px;
+  }
+
+  /* MOBILE CHEVRON ARROWS */
+
+  .carousel-arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 80;
+    width: 48px;
+    height: 70px;
+    border: none;
+    background: transparent;
+    font-size: 0;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+
+  .carousel-arrow::before {
+    content: "";
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-top: 3px solid var(--blue);
+    border-right: 3px solid var(--blue);
+    opacity: 0.95;
+    transition: 0.25s ease;
+  }
+
+  .carousel-arrow-right {
+    right: -4px;
+  }
+
+  .carousel-arrow-right::before {
+    transform: rotate(45deg);
+  }
+
+  .carousel-arrow-left {
+    left: -4px;
+  }
+
+  .carousel-arrow-left::before {
+    transform: rotate(-135deg);
+  }
+
+  .carousel-arrow-right:hover::before {
+    opacity: 1;
+    transform: scale(1.08) rotate(45deg);
+  }
+
+  .carousel-arrow-left:hover::before {
+    opacity: 1;
+    transform: scale(1.08) rotate(-135deg);
+  }
 }
 
-.mobile-carousel {
-  scroll-behavior: smooth;
-  scrollbar-width: none;
+/* SKILLS */
+
+.skills-section {
+  padding: var(--section-pad);
+  border-bottom: 1px solid var(--line);
 }
 
-.mobile-carousel::-webkit-scrollbar {
-  display: none;
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 22px;
+  align-items: stretch;
 }
 
-.selected-work .project-grid,
-.reel-grid {
-  display: flex;
-  overflow-x: auto;
-  gap: 18px;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 16px;
+.skill-card {
+  padding: 42px 38px;
+  border: 1px solid rgba(31, 58, 77, 0.16);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.62);
 }
 
-.copy-grid {
-  display: flex;
-  overflow-x: hidden;
-  gap: 18px;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 16px;
-}
-
-.selected-work .project-card,
-.reel-grid .video-card,
-.copy-grid .copy-card {
-  flex: 0 0 84%;
-  scroll-snap-align: center;
-}
-
-.copy-grid .copy-card {
-  max-width: 84%;
-}
-
-.copy-grid .copy-card {
-  padding: 26px;
-}
-
-.copy-card p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.copy-card h4 {
-  font-size: 24px;
-}
-
-/* MOBILE CHEVRON ARROWS */
-
-.carousel-arrow {
+.skill-card span {
   display: block;
-  position: absolute;
-  top: 50%;
-  z-index: 80;
-  width: 48px;
-  height: 70px;
-  border: none;
-  background: transparent;
-  font-size: 0;
-  cursor: pointer;
-  transform: translateY(-50%);
+  margin-bottom: 30px;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--blue-mid);
 }
 
-.carousel-arrow::before {
-  content: "";
+.skill-list {
+  columns: 2;
+  column-gap: 48px;
+}
+
+.language-list {
+  columns: 2;
+  column-gap: 34px;
+}
+
+.skill-list p {
+  margin: 0 0 15px;
+  break-inside: avoid;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--blue);
+}
+
+.skill-list small {
   display: block;
-  width: 22px;
-  height: 22px;
-  border-top: 3px solid var(--blue);
-  border-right: 3px solid var(--blue);
-  opacity: 0.95;
-  transition: 0.25s ease;
+  margin-top: 3px;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
 }
 
-.carousel-arrow-right {
-  right: -4px;
+@media (max-width: 760px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 30px 26px;
+  }
+
+  .skill-list,
+  .language-list {
+    columns: 1;
+  }
+
+  .skill-list p {
+    font-size: 15px;
+  }
 }
 
-.carousel-arrow-right::before {
-  transform: rotate(45deg);
-}
-
-.carousel-arrow-left {
-  left: -4px;
-}
-
-.carousel-arrow-left::before {
-  transform: rotate(-135deg);
-}
-
-.carousel-arrow-right:hover::before {
-  opacity: 1;
-  transform: scale(1.08) rotate(45deg);
-}
-
-.carousel-arrow-left:hover::before {
-  opacity: 1;
-  transform: scale(1.08) rotate(-135deg);
-}
-}
