@@ -117,6 +117,11 @@ figcaption,
   opacity: 0.75;
 }
 
+.main-nav a[aria-current="page"],
+.footer-links a[aria-current="page"] {
+  color: var(--text);
+}
+
 /* TYPE */
 
 .eyebrow {
@@ -1464,125 +1469,17 @@ p {
   }
 }
 
-/* =========================================
-   STEELMAR — CONTENT MANAGEMENT VISUALS
-   ========================================= */
-
-/* CALENDAR */
-
-.steelmar-calendar-card {
-  width: 100%;
-}
-
-.steelmar-calendar-card a {
-  display: block;
-  width: 100%;
-}
-
-.steelmar-calendar-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 18px;
-}
-
-
-/* CONTENT MANAGEMENT SECTION */
-
-.steelmar-framework-section {
-  display: block;
-}
-
-.steelmar-framework-section .case-subcopy {
-  max-width: 780px;
-}
-
-
-/* THE THREE FRAMEWORK IMAGES */
-
-.steelmar-framework-stack {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
-  width: 100%;
-  margin-top: 48px;
-}
-
-.steelmar-framework-card {
-  width: 100%;
-  margin: 0;
-}
-
-.steelmar-framework-card a {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 24px;
-}
-
-.steelmar-framework-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 24px;
-  transition: transform 0.35s ease;
-}
-
-
-/* VERY SUBTLE HOVER */
-
-.steelmar-framework-card a:hover img {
-  transform: scale(1.01);
-}
-
-
-/* CAPTION UNDER IMAGE */
-
-.steelmar-framework-card figcaption {
-  margin-top: 14px;
-  font-family: var(--display);
-  font-size: 11px;
-  line-height: 1.4;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--blue-mid);
-  opacity: 0.7;
-}
-
-
-/* TABLET */
-
-@media (max-width: 1100px) {
-
-  .steelmar-framework-stack {
-    gap: 36px;
-    margin-top: 40px;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-}
-
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-
-  .steelmar-framework-stack {
-    gap: 28px;
-    margin-top: 32px;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
-
-  .steelmar-framework-card a,
-  .steelmar-framework-card img,
-  .steelmar-calendar-card img {
-    border-radius: 14px;
-  }
-
-  .steelmar-framework-card figcaption {
-    margin-top: 10px;
-    font-size: 10px;
-  }
-
 }
